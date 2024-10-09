@@ -1,0 +1,14 @@
+red 7.0
+orange 8.35
+yellow 8.65
+green 9.5
+cyan 10.65
+blue 12.85
+purple 14.15
+purple 15.5
+purple 16
+
+
+
+first sodium 8.85
+second sodium 8.65

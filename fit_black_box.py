@@ -69,7 +69,14 @@ def chi_squared_test(m, b, x, y, yerr):
 
 
 
+def fit(my_func, xdata, ydata, xerror=None, yerror=None, init_guess=None):
+    
+    popt, pcov = optimize.curve_fit(my_func, xdata, ydata, sigma=yerror, p0=init_guess)
+    # The best fit values are popt[], while pcov[] tells us the uncertainties.
 
+    puncert = np.sqrt(np.diagonal(pcov))
+
+    return popt, puncert
 
 def plot_fit(my_func, xdata, ydata, xerror=None, yerror=None, init_guess=None, font_size=14, title="",
              xlabel="Independant Variable (units)", ylabel="Dependent Variable (units)"):    

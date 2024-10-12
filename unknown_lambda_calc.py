@@ -1,4 +1,6 @@
 from calibration import calibrate
+import math
+from calibration import lambda_0
 
 m, b, merr, berr = calibrate(True)
 

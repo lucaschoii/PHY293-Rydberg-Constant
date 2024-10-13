@@ -23,8 +23,8 @@ separation = sodium_lambda[1] - sodium_lambda[0]
 separation_err = math.sqrt(sum(s**2 for s in sodium_lambda_err))
 print(f"separation, nm = {separation} +/- {separation_err}")
 
-cm_inv_sep = 1 / (separation * 10**7)
-cm_inv_sep_err = cm_inv_sep * separation_err / separation
+cm_inv_sep = 1 / (sodium_lambda[0] * 10**-7) - 1 / (sodium_lambda[1] * 10**-7)
+cm_inv_sep_err = math.sqrt((sodium_lambda_err[0]/sodium_lambda[0]**2)**2 + (sodium_lambda_err[1]/sodium_lambda[1]**2)**2)
 print(f"separation, cm^-1 = {cm_inv_sep} +/- {cm_inv_sep_err}")
 
 E_f = [h * c / (l * 10 ** -9) / ev for l in sodium_lambda]
@@ -32,11 +32,6 @@ E_f_err = [E_f[i] * sodium_lambda_err[i]/sodium_lambda[i] for i in range(len(sod
 separation_E = abs(E_f[1] - E_f[0])
 separation_E_err = math.sqrt(sum(s**2 for s in E_f_err))
 print(f"separation, eV = {separation_E} +/- {separation_E_err}")
-
-sep = h * c / ev / (separation * 10**-9)
-print(sep)
-
-
 
 
 

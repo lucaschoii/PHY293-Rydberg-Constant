@@ -14,9 +14,9 @@ def calibrate(plot):
 
     init_guess = (0, 1)
     font_size = 20
-    xlabel = "(lambda - lambda_0)^-1"
+    xlabel = "(lambda - lambda_0)^-1 [nm^-1]"
     ylabel = "y"
-    title = "Callibration"
+    title = "Calibration"
 
 
     y = np.array([13.0, 11.85, 11.5, 11.25, 8.85, 7.5, 15.65, 12.15, 7.65])
@@ -24,7 +24,7 @@ def calibrate(plot):
     x = np.array([1.0 / x for x in x_inv])
 
     yerr = np.array([0.15] * len(y))
-    xerr = [math.sqrt(wav_err[i]**2 + lambda_0err**2) / abs(wavelength[i] - lambda_0) for i in range(len(wavelength))]
+    xerr = [math.sqrt(wav_err[i]**2 + lambda_0err**2) / (wavelength[i] - lambda_0)**2 for i in range(len(wavelength))]
 
     if plot:
 
